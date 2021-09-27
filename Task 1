@@ -1,5 +1,66 @@
-<?php include "registration/validation.php"; ?>
+<?php
+$fnamevalidation="";
+$lnamevalidation="";
+$agevalidation="";
+$designationvalidation="";
+$languagevalidtion="";
+$emailvaidation="";
+$passwordvalidation="";
+$fname=$lname=$age=$designation=$email=$password="";
+if($_SERVER["REQUEST_METHOD"]=="POST")
+{
+    $fname=$_REQUEST["fname"];
+    $lname=$_REQUEST["lname"];
+    $age=$_REQUEST["age"];
+    $designation=$_REQUEST["designation"];
+    $email=$_REQUEST["email"];
+    $password=$_REQUEST["password"];
+    if(empty($_REQUEST[ "fname"]) || (strlen($_REQUEST["fname"])<5))
+    {
+        $fnamevalidation="Enter Your First Name ";
+    }
+    else
+    {
+        $fname=$_REQUEST["fname"];
+        $fnamevalidation= "Your first name is ".$fname;
+    }
+ 
+    if(empty($_REQUEST[ "lname"]) || (strlen($_REQUEST["lname"])<5))
+    {
+        $lnamevalidation="Enter Your Last Name ";
+    }
+    else
+    {
+        $lname=$_REQUEST["lname"];
+        $lnamevalidation= "Your last name is ".$lname;
+    }
+ 
+    if(empty($_REQUEST["age"]))
+    {
+        $agevalidation="Enter Your age ";
+    }
+    else
+    {
+        $age=$_REQUEST["age"];
+        $agevalidation= "Your age is ".$age;
+    }
+    if(isset($_REQUEST["designation"])
+    {
+        $designation= $_REQUEST["designation"];
+        $designationvalidation="your designation is ".$designation;
+ 
+    }
+    else
+    {
+        $designationvalidation="please select at your designation";
+    }
+}
+?>
 
+
+
+<?php include "registration/validation.php"; ?>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,86 +68,85 @@
 <h1>Registration Form</h1>
 </head>
 <body>
-	<hr>
-	<form action= "" method ="post">
-		<table>
-			
-			<tr>
-			    <td>First Name:</td>
-		        <td><input type="text" name="fName" > </td>  
-		        
-		    </tr>
-		    <tr>
-			    <td>Last Name:</td>
-		        <td><input type="text" name="lName" >   </td>  
-		        
-		    </tr> 
-		    <tr>
-			    <td>Age:</td>
-		        <td><input type="Age" name="Age" >   </td>  
-		        
-		    </tr>
+    <hr>
+    <form action= "" method ="post">
+        <table>
 
-		    <tr>
-			    <td>Designation:</td>
-		        <td>
-		        	<input type="radio" name="junior" value="junior">
-		        	Junior Programmer
-		       
-		        	<input type="radio" name="senior" value="senior">
-		        	Senior Programmer
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" name="fName" > </td>  
 
-		        	<input type="radio" name="lead" value="lead">
-		        	Project Lead
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><input type="text" name="lName" >   </td>  
 
-		        </td>
-		    </tr>
-		    <tr>
-		    	<td>
+            </tr> 
+            <tr>
+                <td>Age:</td>
+                <td><input type="Age" name="Age" >   </td>  
 
-		    		Preferred language
+            </tr>
+ 
+            <tr>
+                <td>Designation:</td>
+                <td>
+                    <input type="radio" name="junior" value="junior">
+                    Junior Programmer
 
+                    <input type="radio" name="senior" value="senior">
+                    Senior Programmer
+ 
+                    <input type="radio" name="lead" value="lead">
+                    Project Lead
+ 
+                </td>
+            </tr>
+            <tr>
+                <td>
+ 
+                    Preferred language
+ 
 
-		    	</td>
-		    	<td>
-		    		<br><input type="checkbox" name="language1" value="JAVA">
-		    		JAVA
-		    		<input type="checkbox" name="language2" value="PHP">
-		    		PHP
-		    		<input type="checkbox" name="language3" value="C">
-		    		C++
-		    		<br>
-		    		
-		    		<br>
-		    		
-		    	</td>
+                </td>
+                <td>
+                    <br><input type="checkbox" name="language1" value="JAVA">
+                    JAVA
+                    <input type="checkbox" name="language2" value="PHP">
+                    PHP
+                    <input type="checkbox" name="language3" value="C">
+                    C++
+                    <br>
 
-		    </tr>
+                    <br>
 
-			<tr>
-			    <td>Email:</td>
-		        <td><input type="Email" name="Email">  </td>
-		    </tr> 
-		    <tr>
-			    <td>Password:</td>
-		        <td><input type="Password" name="Password">  </td>
-		    </tr> 
-
-		    <tr>
-		    	<td>
-		    		please choose a file:
-		    	</td>
-		    	<td><input type="file" name="file"></td>
-		    </tr> 
-		    <br>
-		</table>
-				    <input type="submit" value="submit">
-		    <input type="reset" name="reset">		
-	</form>
+                </td>
+ 
+            </tr>
+ 
+            <tr>
+                <td>Email:</td>
+                <td><input type="Email" name="Email">  </td>
+            </tr> 
+            <tr>
+                <td>Password:</td>
+                <td><input type="Password" name="Password">  </td>
+            </tr> 
+ 
+            <tr>
+                <td>
+                    please choose a file:
+                </td>
+                <td><input type="file" name="file"></td>
+            </tr> 
+            <br>
+        </table>
+                    <input type="submit" value="submit">
+            <input type="reset" name="reset">        
+    </form>
 </hr>
-
-
-
+ 
+ 
 </body>
 </html>
 
